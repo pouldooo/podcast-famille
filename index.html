@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Moïse et Josette racontent leur vie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papier:#F2F2EC;
+    --blanc:#FCFCF8;
+    --encre:#14282B;
+    --encre-2:#4A6468;
+    --vert:#1E5A55;
+    --rose:#C9776B;
+    --ocre:#AD7A22;
+    --filet:rgba(20,40,43,.16);
+    --filet-fort:rgba(20,40,43,.5);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--papier);color:var(--encre);
+    font-family:'Newsreader',Georgia,serif;
+    font-size:18px;line-height:1.6;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px}
+
+  /* filets épais-fin, signature des vieux journaux */
+  .filet-double{border-top:4px solid var(--encre);border-bottom:1px solid var(--encre);height:5px}
+  .filet-double.inverse{border-top:1px solid var(--encre);border-bottom:4px solid var(--encre)}
+
+  /* ===== MANCHETTE ===== */
+  .manchette{padding:24px 0 0;text-align:center}
+  .manchette h1{
+    font-family:'Bodoni Moda',Didot,Georgia,serif;
+    font-weight:700;
+    font-size:clamp(31px,7vw,62px);
+    line-height:1.03;letter-spacing:-.015em;
+    margin:26px 0 0;
+  }
+  .soustitre{
+    font-family:'Newsreader',Georgia,serif;font-style:italic;
+    font-size:clamp(16.5px,2.4vw,20px);line-height:1.45;
+    color:var(--encre-2);max-width:44ch;margin:16px auto 24px;
+  }
+  .ourlet{
+    display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+    padding:8px 0;font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--encre-2);
+  }
+  .ourlet span+span::before{content:"·";margin-right:12px;color:var(--filet-fort)}
+
+  /* ===== PORTRAITS ===== */
+  .portraits{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;
+    padding:30px 0 32px;
+  }
+  .portraits figure{margin:0}
+  .portraits img{
+    display:block;width:100%;height:230px;object-fit:cover;object-position:center 20%;
+    border:1px solid var(--filet-fort);background:#DEE2DC;
+  }
+  .portraits figcaption{
+    font-style:italic;font-size:15px;color:var(--encre-2);
+    margin-top:9px;line-height:1.35;
+  }
+
+  /* ===== SECTIONS ===== */
+  .serie{padding:38px 0 0}
+  .bandeau{border-top:3px solid var(--encre);border-bottom:1px solid var(--encre);padding:12px 0 11px;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .bandeau h2{
+    font-family:'Bodoni Moda',Didot,Georgia,serif;font-weight:600;
+    font-size:clamp(21px,3.8vw,29px);margin:0;
+    letter-spacing:.02em;
+  }
+  .bandeau .compte{
+    font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--encre-2);
+  }
+  .exergue{
+    font-style:italic;font-weight:500;
+    font-size:clamp(20px,3.6vw,28px);line-height:1.35;
+    color:var(--vert);margin:28px 0 6px;max-width:26ch;
+  }
+  .exergue-src{
+    font-family:'Space Mono',monospace;font-size:11.5px;
+    letter-spacing:.12em;text-transform:uppercase;
+    color:var(--encre-2);margin:0 0 26px;
+  }
+  .chapeau{font-size:17.5px;color:var(--encre-2);margin:0;max-width:62ch}
+  .chapeau::first-letter{
+    font-family:'Bodoni Moda',Didot,Georgia,serif;
+    float:left;font-size:56px;line-height:.82;font-weight:700;
+    color:var(--encre);margin:5px 9px 0 0;
+  }
+
+  .dinkus{text-align:center;color:var(--filet-fort);font-size:15px;letter-spacing:.5em;margin:30px 0 4px}
+
+  /* ===== ÉPISODES (cartes) ===== */
+  .ep{
+    background:var(--blanc);
+    border:1px solid var(--filet-fort);
+    padding:22px 22px 19px;
+    margin-bottom:16px;
+  }
+  .ep-tete{display:flex;gap:15px;align-items:baseline}
+  .num{
+    font-family:'Space Mono',monospace;font-weight:700;
+    font-size:12px;letter-spacing:.08em;
+    color:var(--rose);flex:none;padding-top:4px;white-space:nowrap;
+  }
+  .ep-corps{flex:1;min-width:0}
+  .ep h3{
+    font-family:'Bodoni Moda',Didot,Georgia,serif;font-weight:600;
+    font-size:clamp(19px,3.1vw,23px);line-height:1.24;
+    margin:0 0 6px;
+  }
+  .duree{
+    font-family:'Space Mono',monospace;font-size:11.5px;
+    letter-spacing:.09em;color:var(--encre-2);margin:0 0 12px;
+  }
+  .ep .desc{margin:0 0 16px;font-size:17px;color:var(--encre-2);max-width:60ch}
+  audio{width:100%;height:40px;display:block}
+  .dl{
+    display:inline-block;margin-top:12px;
+    font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:.13em;text-transform:uppercase;
+    color:var(--vert);text-decoration:none;
+    border-bottom:1px solid var(--filet-fort);padding-bottom:2px;
+  }
+  .dl:hover,.dl:focus-visible{color:var(--encre);border-color:var(--encre)}
+
+  /* ===== À VENIR ===== */
+  .avenir{
+    background:var(--blanc);border:1px solid var(--filet-fort);
+    padding:24px 22px;margin-top:26px;
+    display:grid;grid-template-columns:175px 1fr;gap:24px;align-items:start;
+  }
+  .avenir img{
+    display:block;width:100%;height:200px;object-fit:cover;object-position:center 18%;
+    border:1px solid var(--filet);background:#DEE2DC;
+  }
+  .badge{
+    display:inline-block;border:1px solid var(--ocre);color:var(--ocre);
+    font-family:'Space Mono',monospace;font-size:10.5px;
+    letter-spacing:.2em;text-transform:uppercase;
+    padding:4px 11px;margin-bottom:15px;
+  }
+  .avenir p{margin:0 0 12px;font-size:17px;color:var(--encre-2);max-width:56ch}
+  .avenir .accroche{
+    font-style:italic;font-size:18.5px;color:var(--vert);margin:18px 0 0;
+  }
+
+  /* ===== AIDE + PIED ===== */
+  .aide{margin:44px 0 0;padding:20px 22px;border:1px solid var(--filet)}
+  .aide .titre{
+    font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--encre);margin:0 0 10px;
+  }
+  .aide p{margin:0;font-size:16.5px;color:var(--encre-2)}
+  footer{
+    margin-top:42px;padding:18px 0 60px;
+    font-size:15px;color:var(--encre-2);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+  footer p{margin:0}
+  footer .droite{text-align:right;font-style:italic}
+
+  @media (max-width:640px){
+    .portraits{gap:16px}
+    .portraits img{height:42vw}
+    .avenir{grid-template-columns:1fr;gap:18px}
+    .avenir img{height:240px}
+    .ep{padding:20px 17px 17px}
+    .ep-tete{gap:12px}
+    .chapeau::first-letter{font-size:48px}
+    footer{flex-direction:column}
+    footer .droite{text-align:left}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="manchette">
+    <div class="filet-double"></div>
+    <h1>Moïse et Josette racontent leur vie</h1>
+    <p class="soustitre">
+      Deux enfances d'avant-guerre, une maison à Saint-Jean-de-Monts,
+      et leurs petits-enfants venus poser des questions.
+    </p>
+    <div class="filet-double inverse"></div>
+    <div class="ourlet">
+      <span>Archive de famille</span>
+      <span>Vendée</span>
+      <span>2026</span>
+    </div>
+    <div class="filet-double inverse" style="border-bottom-width:1px"></div>
+
+    <div class="portraits">
+      <figure>
+        <img src="josette.jpg" alt="Josette">
+        <figcaption>Josette, 92 ans. Née le 5 février à Escoublac.</figcaption>
+      </figure>
+      <figure>
+        <img src="moise.jpg" alt="Moïse">
+        <figcaption>Moïse, 94 ans. Né le 8 août à Givrand.</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="serie">
+      <div class="bandeau">
+        <h2>La vie de Josette</h2>
+        <span class="compte">6 épisodes · 1 h 23</span>
+      </div>
+
+      <p class="exergue">« Moi, de toute façon, j'ai toujours vécu dans la fête. »</p>
+      <p class="exergue-src">Josette, épisode 2</p>
+
+      <p class="chapeau">
+        Enregistré le 14 juillet 2026. D'Escoublac aux bals musettes, de la pharmacie de
+        La Baule à la mobylette d'un soir de match, jusqu'aux quatre arrière-petits-enfants.
+      </p>
+
+      <p class="dinkus">❖</p>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 01</span>
+          <div class="ep-corps">
+            <h3>Une enfance, la Libération en toile de fond</h3>
+            <p class="duree">13 min 01</p>
+            <p class="desc">
+              Escoublac, la maison au grand jardin, sa grand-mère Alexandrine, les repas
+              de boudin où tout le village était invité. Et cette nuit de 1944 : elle a
+              dix ans, elle danse la valse avec un soldat qui s'appelait Raymond.
+            </p>
+            <audio controls preload="none" src="mamie-1.mp3" data-titre="Une enfance, la Libération en toile de fond"></audio>
+            <a class="dl" href="mamie-1.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 02</span>
+          <div class="ep-corps">
+            <h3>Le bal</h3>
+            <p class="duree">13 min 50</p>
+            <p class="desc">
+              À seize ans, elle découvre les bals. Les copines, l'accordéon, les
+              prétendants et leurs « paroles, paroles ». Jean-Claude, son petit frère,
+              avec qui elle dansait la valse. Et Peps, son père, qui faisait rire toute
+              la famille.
+            </p>
+            <audio controls preload="none" src="mamie-2.mp3" data-titre="Le bal"></audio>
+            <a class="dl" href="mamie-2.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 03</span>
+          <div class="ep-corps">
+            <h3>Fonder une famille, de la pharmacie au poulet frite</h3>
+            <p class="duree">12 min 25</p>
+            <p class="desc">
+              La pharmacie de La Baule, un peintre venu du Maine-et-Loire, une rencontre
+              dans un escalier — « c'était la destinée ». Puis la naissance d'Hervé,
+              un soir de match, et celle de Mylène.
+            </p>
+            <audio controls preload="none" src="mamie-3.mp3" data-titre="Fonder une famille, de la pharmacie au poulet frite"></audio>
+            <a class="dl" href="mamie-3.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 04</span>
+          <div class="ep-corps">
+            <h3>Jean-Claude</h3>
+            <p class="duree">8 min 37</p>
+            <p class="desc">
+              Son petit frère est parti en Algérie et n'en est pas revenu tout à fait le
+              même. Un épisode plus grave, où elle raconte ce que la famille a traversé —
+              et ce qu'elle doit à ses parents.
+            </p>
+            <audio controls preload="none" src="mamie-4.mp3" data-titre="Jean-Claude"></audio>
+            <a class="dl" href="mamie-4.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 05</span>
+          <div class="ep-corps">
+            <h3>(Arrières) Petits enfants, souvenirs et rigolades</h3>
+            <p class="duree">13 min 29</p>
+            <p class="desc">
+              Ses quatre petits-enfants, dont Germain qu'elle a gardé dès ses trois mois
+              et demi. Les étés tous ensemble, les goûters sur la plage, les bêtises et
+              les câlins du soir. Et aujourd'hui, quatre arrière-petits-enfants.
+            </p>
+            <audio controls preload="none" src="mamie-5.mp3" data-titre="(Arrières) Petits enfants, souvenirs et rigolades"></audio>
+            <a class="dl" href="mamie-5.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="ep">
+        <div class="ep-tete">
+          <span class="num">N° 06</span>
+          <div class="ep-corps">
+            <h3>L'art de vivre à la Jojo</h3>
+            <p class="duree">21 min 32</p>
+            <p class="desc">
+              Le pot-au-feu, les crêpes au rhum, la boutique de chailles. Les soirées au
+              Tango jusqu'à quatre heures du matin, la musique orientale qu'elle s'est
+              découverte toute seule, sans savoir d'où ça lui venait. Et le mot de la fin.
+            </p>
+            <audio controls preload="none" src="mamie-6.mp3" data-titre="L'art de vivre à la Jojo"></audio>
+            <a class="dl" href="mamie-6.mp3" download>Télécharger</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="serie">
+      <div class="bandeau">
+        <h2>La vie de Moïse</h2>
+        <span class="compte">En préparation</span>
+      </div>
+
+      <div class="avenir">
+        <figure style="margin:0">
+          <img src="moise.jpg" alt="Moïse">
+        </figure>
+        <div>
+          <span class="badge">Bientôt</span>
+          <p>
+            Moïse a lui aussi passé une après-midi au micro. Son enfance en
+            Loire-Atlantique et son instituteur emmené par les Allemands, les deux
+            ans de service militaire au Maroc, l'atelier au fond du jardin, le club
+            de vélo et les jeunes qu'il entraînait.
+          </p>
+          <p>Ses épisodes arriveront ici même.</p>
+          <p class="accroche">Il lit son journal tous les matins. Cette fois, c'est lui qui raconte.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="aide">
+      <p class="titre">Comment écouter</p>
+      <p>
+        Appuyez sur ▶ : la lecture continue même écran verrouillé, et passe en Bluetooth
+        dans la voiture. Pour le train ou les zones sans réseau, utilisez le lien
+        « télécharger » sous chaque épisode.
+      </p>
+    </div>
+
+    <div class="filet-double" style="margin-top:42px"></div>
+    <footer>
+      <p>Réalisé par Pauline, Germain, Dorothée et Pierre-François.</p>
+      <p class="droite">Page privée — merci de garder ce lien en famille.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// Un seul épisode à la fois + titre et pochette sur l'écran verrouillé.
+(function () {
+  var lecteurs = Array.prototype.slice.call(document.querySelectorAll('audio'));
+  lecteurs.forEach(function (a) {
+    a.addEventListener('play', function () {
+      lecteurs.forEach(function (autre) { if (autre !== a) autre.pause(); });
+      if ('mediaSession' in navigator) {
+        try {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: a.dataset.titre || 'Épisode',
+            artist: 'Josette',
+            album: 'Moïse et Josette racontent leur vie',
+            artwork: [{ src: 'josette.jpg', sizes: '512x512', type: 'image/jpeg' }]
+          });
+        } catch (e) {}
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
